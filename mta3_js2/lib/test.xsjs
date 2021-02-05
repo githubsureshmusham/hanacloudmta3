@@ -18,6 +18,7 @@ else {
     	outputlist.push(output);
 	}*/
 }
+
 rs.close();
 pstmt.close();
 conn.close();
