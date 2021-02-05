@@ -1,0 +1,42 @@
+ID: cloudmta3
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: cloudmta3_db
+    type: hdb
+    path: cloudmta3_db
+    requires:
+      - name: hdi_cloudmta3_db
+  - name: mta3_js2
+    type: nodejs
+    path: mta3_js2
+    provides:
+      - name: mta3_js2_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: cloudmta3_db
+      - name: hdi_cloudmta3_db
+      - name: uaa_cloudmta3
+resources:
+  - name: hdi_cloudmta3_db
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-name: hana-hdi
+  - name: mta3_uaa
+    type: com.sap.xs.uaa-space
+    parameters:
+      path: xs-security.json
+  - name: uaa_cloudmta3
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_cloudmta3
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service

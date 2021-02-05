@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "imports": 
+   [
+    {
+    	"target_table" : "cloudmta3.cloudmta3_db.Tables::MTA3_TABLE",
+    	"source_data" : { 
+			"data_type" : "CSV", 
+			"file_name" : "cloudmta3.cloudmta3_db.datafiles::datafilemta3.csv", 
+			"has_header" : true,
+			"type_config" : { 
+				"delimiter" : "," 
+				} 
+    	},
+    	"import_settings" : {
+			"import_columns" : [ 
+				"ID", 
+				"FIRSTNAME"			
+			],
+			"include_filter" : [],
+			"exclude_filter" : []
+			
+		}
+    }
+   ] 
+}

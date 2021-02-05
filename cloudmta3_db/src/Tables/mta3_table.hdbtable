@@ -1,0 +1,4 @@
+COLUMN TABLE "cloudmta3.cloudmta3_db.Tables::MTA3_TABLE" (
+	"ID" NVARCHAR(100),
+	"FIRSTNAME" NVARCHAR(100)
+)

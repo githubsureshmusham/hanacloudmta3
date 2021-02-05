@@ -1,0 +1,3 @@
+service {
+	"cloudmta3.cloudmta3_db.Tables::MTA3_TABLE" as "mta3table" keys generate local "ID"; ;
+}
